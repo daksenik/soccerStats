@@ -25,4 +25,9 @@ public class Team {
     public void setAlias(String alias) { this.alias = alias; }
     public void setCountry(String country) { this.country = country; }
     public void setCountryCode(String countryCode) { this.countryCode = countryCode; }
+
+    @Override
+    public String toString(){
+        return "\tTeam : " + fullName + "[" + alias + "] (" + countryCode + ")";
+    }
 }

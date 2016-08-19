@@ -19,6 +19,8 @@ public class MatchStats {
     MatchUpdater matchUpdater = null;
 
     public MatchStats(MatchUpdater source){
+        home = new TeamStats();
+        away = new TeamStats();
         matchUpdater = source;
         matchUpdater.initializeStats(this);
     }
@@ -46,4 +48,10 @@ public class MatchStats {
 
     public void update() { matchUpdater.updateStats(this); }
     public void totalUpdate() { matchUpdater.initializeStats(this); }
+
+    @Override
+    public String toString(){
+        if(home == null || away == null || matchUpdater == null) return "Statistics is not loaded now.";
+        return "Home : \n" + home.toString() + "\nAway : \n" + away.toString() + curTime + "'";
+    }
 }
