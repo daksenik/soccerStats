@@ -1,4 +1,4 @@
-package ServerData;
+package serverdata;
 
 /**
  * Created by daksenik on 19.08.2016.

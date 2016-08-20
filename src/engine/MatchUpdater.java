@@ -1,4 +1,4 @@
-package Engine;
+package engine;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -44,19 +44,20 @@ public class MatchUpdater {
         }
     }
 
-    public void initializeStats(ServerData.MatchStats ms){
+    public void initializeStats(serverdata.MatchStats ms){
         updateContent();
-        //...
         updateStats(ms, false);
     }
-    public void updateStats(ServerData.MatchStats ms, boolean contentUpd){
-        updateContent();
+    public void updateStats(serverdata.MatchStats ms, boolean contentUpd){
+        if (contentUpd) updateContent();
 
         try{
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
             StringBuilder toParse = new StringBuilder();
-            for(int i=0;i<content.length();i++)if(content.charAt(i)!=' '||content.charAt(i-1)!=' ')toParse.append(content.charAt(i));
+            for (int i = 0; i < content.length(); i++)
+                if (content.charAt(i) != ' ' || content.charAt(i - 1) != ' ')
+                    toParse.append(content.charAt(i));
             Document doc = builder.parse(new InputSource(new StringReader(toParse.toString())));
             Element root = doc.getDocumentElement();
 
@@ -87,11 +88,11 @@ public class MatchUpdater {
         }
     }
 
-    public void updateStats(ServerData.MatchStats ms){
+    public void updateStats(serverdata.MatchStats ms){
         updateStats(ms,true);
     }
 
-    public void parseTeam(Node curNode, ServerData.TeamStats ts){
+    public void parseTeam(Node curNode, serverdata.TeamStats ts){
         Element team = (Element)curNode;
         ts.team.setName(team.getAttribute("name").trim());
         ts.team.setFullName(team.getAttribute("full_name").trim());

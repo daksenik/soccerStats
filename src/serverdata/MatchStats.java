@@ -1,6 +1,6 @@
-package ServerData;
+package serverdata;
 
-import Engine.MatchUpdater;
+import engine.MatchUpdater;
 
 /**
  * Created by daksenik on 19.08.2016.
