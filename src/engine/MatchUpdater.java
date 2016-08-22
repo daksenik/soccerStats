@@ -20,9 +20,9 @@ public class MatchUpdater {
     URL source = null;
     String content;
 
-    public MatchUpdater(String query) {
+    public MatchUpdater(String matchID) {
         try{
-            source = new URL(query);
+            source = new URL(RequestBuilder.getMatchStatsRequest(matchID));
         }catch(Exception e){
             System.out.println(e);
         }

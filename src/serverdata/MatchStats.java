@@ -52,6 +52,6 @@ public class MatchStats {
     @Override
     public String toString(){
         if(home == null || away == null || matchUpdater == null) return "Statistics is not loaded now.";
-        return "Home : \n" + home.toString() + "\nAway : \n" + away.toString() + curTime + "'";
+        return "Home : \n" + home.toString() + "\nAway : \n" + away.toString() + curTime + "'[" + status + "]";
     }
 }
